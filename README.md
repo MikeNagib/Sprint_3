@@ -22,7 +22,7 @@ test_navigate_into_constructor:
     -- по клику на «Конструктор»
     -- по клику на логотип Stellar Burgers
 
-
+ 
 test_logout:
 Выход из аккаунта
     -- по кнопке «Выйти» в личном кабинете
