@@ -46,3 +46,4 @@ def test_chois_constructor_section_roll_sucsses(login_user_from_main_page):  # �
     assert driver.find_element(By.XPATH, rolls_crater_check).text == 'Краторная булка N-200i'
 
     driver.quit()
+

@@ -14,3 +14,4 @@ class TestNavigateToPersonalAccount:
         driver.find_element(*PersonalAccountLocators.logout_button).click()
         login_button = driver.find_element(*LoginPageLocators.login_button).text
         assert login_button == 'Войти'
+

@@ -37,3 +37,4 @@ class MainPageLocators:
 class PersonalAccountLocators:
     constructor_button = (By.XPATH, "// p[text()='Конструктор']")  # кнопка для перехода в конструктор
     logout_button = By.XPATH, './/button[text()=\'Выход\']'  # кнопка для выхода из аккаунта
+

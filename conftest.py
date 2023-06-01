@@ -57,3 +57,4 @@ def login_user_from_main_page():
     driver.find_element(*LoginPageLocators.password).send_keys(GOOD_PASSWORD)
     driver.find_element(By.XPATH, button2).click()
     return driver
+

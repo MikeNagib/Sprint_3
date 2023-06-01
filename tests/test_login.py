@@ -47,3 +47,4 @@ class TestLogIn:
         webdriver_wait(driver, MainPageLocators.personal_acc)
         to_check = driver.find_element(*MainPageLocators.personal_acc).text
         assert 'Личный Кабинет' == to_check
+

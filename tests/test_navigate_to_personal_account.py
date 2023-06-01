@@ -18,3 +18,4 @@ class TestNavigateToPersonalAccount:
         driver.find_element(*MainPageLocators.personal_acc).click()
         save_button = driver.find_element(*MainPageLocators.save_button).text
         assert save_button == 'Сохранить'
+

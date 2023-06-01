@@ -23,3 +23,4 @@ class TestFromPrivate_room_to_constructor:
         driver.find_element(*MainPageLocators.logo).click()
         constructor_h2 = driver.find_element(*MainPageLocators.constructor_header).text
         assert constructor_h2 == 'Соберите бургер'
+

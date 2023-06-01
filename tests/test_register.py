@@ -23,3 +23,4 @@ class TestRegistration:
         response = driver.find_element(*RegistrPageLocators.incorrect_password).text
         assert 'Некорректный пароль' == response
 
+
