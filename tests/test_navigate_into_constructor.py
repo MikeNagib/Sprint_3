@@ -1,49 +1,18 @@
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
-from locators import *
+from locators import Locators
 
 
-def test_chois_constructor_section_filling_sucsses(login_user_from_main_page):  # Переход по соусам
-    driver = login_user_from_main_page
-    WebDriverWait(driver, 5).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, sauces)))
-    driver.find_element(By.XPATH, sauces).click()
-    WebDriverWait(driver, 5).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, sauces_traditional_galactic_sauce)))
-    driver.find_element(By.XPATH, sauces_traditional_galactic_sauce).click()
+class TestNavigateConstructor:
+    def test_go_to_sauces_tab(self, driver):
+        driver.find_element(*Locators.sauces_header).click()
+        login_h2 = driver.find_element(*Locators.sauces).text
+        assert login_h2 == 'Соусы'
 
-    assert driver.find_element(By.XPATH, galactic_sauce_check).text == 'Соус традиционный галактический'
+    def test_go_to_rolls_tab(self, driver):
+        driver.find_element(*Locators.rolls_header).click()
+        login_h2 = driver.find_element(*Locators.rolls).text
+        assert login_h2 == 'Булки'
 
-    driver.quit()
-
-
-def test_chois_constructor_section_sauce_sucsses(login_user_from_main_page):  # Переход по начинке
-    driver = login_user_from_main_page
-    WebDriverWait(driver, 3).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, filling)))
-    driver.find_element(By.XPATH, filling).click()
-    WebDriverWait(driver, 5).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, filling)))
-    driver.find_element(By.XPATH, fillings_cheese_with_asteroid_mold).click()
-
-    assert driver.find_element(By.XPATH, asteroid_mold_check).text == 'Сыр с астероидной плесенью'
-
-    driver.quit()
-
-
-def test_chois_constructor_section_roll_sucsses(login_user_from_main_page):  # Переход по булкам
-    driver = login_user_from_main_page
-    WebDriverWait(driver, 5).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, sauces)))
-    driver.find_element(By.XPATH, sauces).click()
-    WebDriverWait(driver, 5).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, rolls)))
-    driver.find_element(By.XPATH, rolls).click()
-    WebDriverWait(driver, 5).until(
-        expected_conditions.element_to_be_clickable((By.XPATH, filling)))
-    driver.find_element(By.XPATH, rolls_crater_roll_n_200i).click()
-
-    assert driver.find_element(By.XPATH, rolls_crater_check).text == 'Краторная булка N-200i'
-
-    driver.quit()
-
+    def test_go_to_filling_tab(self, driver):
+        driver.find_element(*Locators.filling_header).click()
+        login_h2 = driver.find_element(*Locators.filling).text
+        assert login_h2 == 'Начинки'

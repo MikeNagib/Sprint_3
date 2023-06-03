@@ -1,15 +1,13 @@
 from selenium.webdriver.common.by import By
 
-sauces = '//span[text()="Соусы"]'  # таб с Соусы
-sauces_traditional_galactic_sauce = '//*[@id="root"]/div/main/section[1]/div[2]/ul[2]/a[3]'
-galactic_sauce_check = '//*[@id="root"]/div/section[1]/div[1]/div/p'
-filling = '//span[text()="Начинки"]'  # таб с Начинки
-fillings_cheese_with_asteroid_mold = '//*[@id="root"]/div/main/section[1]/div[2]/ul[3]/a[9]'
-asteroid_mold_check = '//*[@id="root"]/div/section[1]/div[1]/div/p'
-rolls = '//span[text()="Булки"]'  # таб с Булки
-rolls_crater_roll_n_200i = '//*[@id="root"]/div/main/section[1]/div[2]/ul[1]/a[2]/img'
-rolls_crater_check = '//*[@id="root"]/div/section[1]/div[1]/div/p'
 
+class Locators:
+    sauces_header = (By.XPATH, '//span[contains(text(),"Соусы")]')  # таб с Соусы
+    filling_header = (By.XPATH, '//span[contains(text(),"Начинки")]')  # таб с Начинки
+    rolls_header = (By.XPATH, '//span[contains(text(),"Булки")]')  # таб с Булки
+    sauces = (By.XPATH, "//h2[contains(text(),'Соусы')]")
+    rolls = (By.XPATH, "//h2[contains(text(),'Булки')]")
+    filling = (By.XPATH, "//h2[contains(text(),'Начинки')]")
 
 class RegistrPageLocators:
     username = (By.XPATH, "//input[@name='name']")  # ввод имя пользователя
@@ -21,9 +19,9 @@ class RegistrPageLocators:
 
 class LoginPageLocators:
     header = (By.XPATH, "//h2[text()='Вход']")  # Вход
-    login = By.XPATH, './/label[text()=\'Email\']/following-sibling::input'  # ввод email
-    password = By.XPATH, './/input[@type=\'password\' and @name=\'Пароль\']'  # ввод пароля
-    login_button = By.XPATH, './/button[text()=\'Войти\']'  # Кнопка входа
+    login = By.XPATH, './/label[text()=\'Email\']/following-sibling::input'  # Окно для ввода email
+    password = By.XPATH, './/input[@type=\'password\' and @name=\'Пароль\']'  # Окно для ввода пароля
+    login_button = By.XPATH, './/button[text()=\'Войти\']'  # Кнопка отсылки данных
 
 
 class MainPageLocators:

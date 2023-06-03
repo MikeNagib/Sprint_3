@@ -1,21 +1,16 @@
 from locators import MainPageLocators, LoginPageLocators
-from conftest import GOOD_LOGIN, GOOD_PASSWORD
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+from data import profile_page
 
 
 class TestNavigateToPersonalAccount:
-    def test_to_profile_before_login(self, driver):  # по клику на «Личный кабинет» до авторизации
-        driver.implicitly_wait(3)
+    def test_to_profile_before_login(self, driver):
         driver.find_element(*MainPageLocators.personal_acc).click()
         login_h2 = driver.find_element(*LoginPageLocators.header).text
         assert login_h2 == 'Вход'
 
-    def test_to_profile_after_login(self, driver):  # по клику на «Личный кабинет» после авторизации
-        driver.implicitly_wait(3)
-        driver.find_element(*MainPageLocators.login_button).click()
-        driver.find_element(*LoginPageLocators.login).send_keys(GOOD_LOGIN)
-        driver.find_element(*LoginPageLocators.password).send_keys(GOOD_PASSWORD)
-        driver.find_element(*LoginPageLocators.login_button).click()
-        driver.find_element(*MainPageLocators.personal_acc).click()
-        save_button = driver.find_element(*MainPageLocators.save_button).text
-        assert save_button == 'Сохранить'
-
+    def test_to_profile_after_login(self, login_user_from_main_page):
+        login_user_from_main_page.find_element(*MainPageLocators.personal_acc).click()
+        WebDriverWait(login_user_from_main_page, 5).until(expected_conditions.url_to_be(profile_page))
+        assert login_user_from_main_page.current_url == profile_page
