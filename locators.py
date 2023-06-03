@@ -9,6 +9,7 @@ class Locators:
     rolls = (By.XPATH, "//h2[contains(text(),'Булки')]")
     filling = (By.XPATH, "//h2[contains(text(),'Начинки')]")
 
+
 class RegistrPageLocators:
     username = (By.XPATH, "//input[@name='name']")  # ввод имя пользователя
     password = (By.XPATH, "//input[@name='Пароль']")  # ввод пароля
