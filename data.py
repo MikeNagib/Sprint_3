@@ -1,0 +1,10 @@
+url_name = "https://stellarburgers.nomoreparties.site/"
+USER_NAME = "MihailNagibin"
+BAD_PASSWORD = "1234"
+COGORTA_ID = "10"
+EMAIL_DOMAIN = "yandex.ru"
+EMAIL_USER = "mike315414"
+GOOD_LOGIN = "mike315414@yandex.ru"
+GOOD_PASSWORD = "QW__12"
+login_form = 'https://stellarburgers.nomoreparties.site/login'
+profile_page = 'https://stellarburgers.nomoreparties.site/account/profile'
